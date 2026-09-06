@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/category")
+@RequestMapping("/api/admin")
 // @CrossOrigin(origins="http://localhost:5173","https://ipl-store-frontend-c1w5kdt9f-kjs-3s-projects.vercel.app","https://*.vercel.app",allowCredentials = "true")
 public class CategoryController {
     @Autowired
@@ -34,9 +34,8 @@ public class CategoryController {
         }
     }
 
-    @PostMapping("/admin/addcategory")
-    public ResponseEntity<?> addcategory(@RequestBody CategoryRequestDto categoryRequestDto,
-                                         HttpSession session) {
+    @PostMapping("/category/addcategory")
+    public ResponseEntity<?> addcategory(@RequestBody CategoryRequestDto categoryRequestDto) {
        // if (!Session.isAdmin(session)) {
        //     return ResponseEntity.badRequest().body("Admin only can add data");
        // }
@@ -48,10 +47,9 @@ public class CategoryController {
         }
     }
 
-    @PutMapping("/admin/updatecategory/{id}")
+    @PutMapping("/category/updatecategory/{id}")
     public ResponseEntity<?> updatecategory(@PathVariable("id") long id,
-                                            @RequestBody CategoryRequestDto categoryRequestDto,
-                                            HttpSession session) {
+                                            @RequestBody CategoryRequestDto categoryRequestDto) {
        // if (!Session.isAdmin(session)) {
        //     return ResponseEntity.status(401).body("Admin alone should update admin login needed");
        // }
@@ -64,9 +62,8 @@ public class CategoryController {
 
     }
 
-    @DeleteMapping("/admin/deletecategory/{id}")
-    public ResponseEntity<?> updatecategory(@PathVariable("id") long id,
-                                           HttpSession session) {
+    @DeleteMapping("/category/deletecategory/{id}")
+    public ResponseEntity<?> updatecategory(@PathVariable("id") long id) {
        // if (!Session.isAdmin(session)) {
        //     return ResponseEntity.status(401).body("Admin alone should update admin login needed");
        // }
