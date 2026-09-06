@@ -31,28 +31,28 @@ public class AdminController {
     @Autowired
     private CategoryService categoryService;
     @GetMapping("/dashboard")
-    public ResponseEntity<?> getdashboard(HttpSession session){
+    public ResponseEntity<?> getdashboard(){
        // if(!Session.isAdmin(session)){
        //     return ResponseEntity.status(401).body("Admin can only view....");
        // }
         return ResponseEntity.ok(adminService.getdashboard());
     }
     @GetMapping("/users")
-    public ResponseEntity<?> getalluses(HttpSession session){
+    public ResponseEntity<?> getalluses(){
        // if(!Session.isAdmin(session)){
        //     return ResponseEntity.status(401).body("Admin login...!!");
        // }
         return ResponseEntity.ok(userService.getallusers());
     }
     @GetMapping("/getallproducts")
-    public ResponseEntity<?> getallproducts(HttpSession session){
+    public ResponseEntity<?> getallproducts(){
        //         if(!Session.isAdmin(session)){
        //     return ResponseEntity.status(401).body("Admin login...!!");
        // }
         return ResponseEntity.ok(productService.getallproducts());
     }
     @GetMapping("/getallcategories")
-    public ResponseEntity<?> getcategories(HttpSession session){
+    public ResponseEntity<?> getcategories(){
        //         if(!Session.isAdmin(session)){
        //     return ResponseEntity.status(401).body("Admin login...!!");
        // }
