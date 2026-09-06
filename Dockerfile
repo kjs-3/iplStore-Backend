@@ -1,9 +1,9 @@
-FROM maven:3.9.6-eclipse-temurin-21 AS build
+FROM maven:3.9.6-eclipse-temurin-25 AS build
 WORKDIR /app
 COPY . .
 RUN mvn clean package -Dmaven.test.skip=true -f ipljerseystore/pom.xml
 
-FROM eclipse-temurin:21-jre
+FROM eclipse-temurin:25-jre
 WORKDIR /app
 COPY --from=build /app/ipljerseystore/target/*.jar app.jar
 EXPOSE 8080
