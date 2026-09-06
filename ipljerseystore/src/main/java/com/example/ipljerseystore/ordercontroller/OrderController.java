@@ -19,8 +19,7 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
     @PostMapping("/placeorder") //done by user
-    public ResponseEntity<?> placeorder(@RequestBody OrderRequestDto orderRequestDto,
-                                        HttpSession session){
+    public ResponseEntity<?> placeorder(@RequestBody OrderRequestDto orderRequestDto){
        // if(!Session.isLoggedin(session)){
        //     return ResponseEntity.status(400).body("Login to Place an Order...");
        // }
@@ -34,7 +33,7 @@ public class OrderController {
         }
     }
     @GetMapping("/userorders/{userid}")
-    public ResponseEntity<?> getuserorders(@PathVariable("userid") long userid,HttpSession session){
+    public ResponseEntity<?> getuserorders(@PathVariable("userid") long userid){
            // if(!Session.isLoggedin(session)){
            //     return ResponseEntity.status(400).body("Login to get an OrderBYUSERID...");
            // }
@@ -48,7 +47,7 @@ public class OrderController {
 
     }
     @GetMapping("/getorderbyid/{orderid}")
-    public ResponseEntity<?> getorderbyid(@PathVariable("orderid") long orderid,HttpSession session){
+    public ResponseEntity<?> getorderbyid(@PathVariable("orderid") long orderid){
        // if(!Session.isLoggedin(session)){
        //     return ResponseEntity.status(400).body("Login to get an OrderBYID...");
        // }
@@ -62,7 +61,7 @@ public class OrderController {
 
     }
     @GetMapping("/admin/getallorders")
-    public ResponseEntity<?> getallorders(HttpSession session){
+    public ResponseEntity<?> getallorders(){
        // if(!Session.isAdmin(session)){
        //     return ResponseEntity.status(400).body("Only admin can see all orders Admin access");
        // }
@@ -76,8 +75,8 @@ public class OrderController {
 
     }
     @GetMapping("/admin/getorderbystatus/{status}")
-    public ResponseEntity<?> getordersbystatus(@PathVariable("status")String status,
-                                               HttpSession session){
+    public ResponseEntity<?> getordersbystatus(@PathVariable("status")String status
+                                              ){
        // if(!Session.isAdmin(session)){
        //     return ResponseEntity.status(400).body("Only admin can see all ordersBYSTATUS Admin access");
        // }
@@ -92,7 +91,7 @@ public class OrderController {
     }
     @PutMapping("/admin/updateorderstatus/{orderId}")
     public ResponseEntity<?> updatestatus(@PathVariable("orderId") long orderid,
-                                          HttpSession session,
+                                         
                                           @RequestBody OrderStatusUpdateDto orderStatusUpdateDto){
        // if(!Session.isAdmin(session)){
        //     return ResponseEntity.status(400).body("Only admin can update all orders Admin access");
@@ -107,7 +106,7 @@ public class OrderController {
 
     }
     @PutMapping("/cancelorder/{orderid}")
-    public ResponseEntity<?> cancelorder(@PathVariable("orderid") long orderid,HttpSession session){
+    public ResponseEntity<?> cancelorder(@PathVariable("orderid") long orderid){
        // if(!Session.isLoggedin(session)){
        //     return ResponseEntity.status(400).body("Login to Cancel your OrderBYID...");
        // }
