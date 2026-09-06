@@ -29,7 +29,7 @@ public class UserController {
     }
     @PostMapping("/login")
     //login -->email,pw
-    public ResponseEntity<?> login (@RequestBody LoginrequestDto loginrequestDto, HttpSession session){
+    public ResponseEntity<?> login (@RequestBody LoginrequestDto loginrequestDto){
         try{
             Userresponse userresponse =us.login(loginrequestDto);
             session.setAttribute("UserId",userresponse.getUserId());
@@ -42,12 +42,12 @@ public class UserController {
         }
     }
     @PostMapping("/logout")
-    public ResponseEntity<?> logout(HttpSession session){
+    public ResponseEntity<?> logout(){
         session.invalidate();
         return ResponseEntity.ok("Logout Successfully");
     }
     @GetMapping("/loggeduser")
-    public ResponseEntity<?> logeduser(HttpSession session){
+    public ResponseEntity<?> logeduser(){
         //who is using y website currently logged person
         Long userId= (long) session.getAttribute("UserId");
         if(userId==null){
