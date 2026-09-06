@@ -18,6 +18,102 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name="products")
 public class Products {
+    public long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(long productId) {
+        this.productId = productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
+    }
+
+    public String getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
+    }
+
+    public double getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public String getProductSize() {
+        return productSize;
+    }
+
+    public void setProductSize(String productSize) {
+        this.productSize = productSize;
+    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public int getProductStock() {
+        return productStock;
+    }
+
+    public void setProductStock(int productStock) {
+        this.productStock = productStock;
+    }
+
+    public LocalDateTime getCreatedat() {
+        return createdat;
+    }
+
+    public void setCreatedat(LocalDateTime createdat) {
+        this.createdat = createdat;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<Cart> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<Cart> cartItems) {
+        this.cartItems = cartItems;
+    }
+
+    public List<OrderItems> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItems> orderItems) {
+        this.orderItems = orderItems;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="product_id")

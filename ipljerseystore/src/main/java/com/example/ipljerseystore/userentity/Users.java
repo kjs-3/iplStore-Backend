@@ -15,6 +15,62 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Table(name="users")
 public class Users {
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public long getUserPhno() {
+        return userPhno;
+    }
+
+    public void setUserPhno(long userPhno) {
+        this.userPhno = userPhno;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public LocalDateTime getLdc() {
+        return ldc;
+    }
+
+    public void setLdc(LocalDateTime ldc) {
+        this.ldc = ldc;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id")

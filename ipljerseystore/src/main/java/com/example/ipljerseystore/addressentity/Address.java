@@ -12,6 +12,86 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name="address")
 public class Address {
+    public long getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(long addressId) {
+        this.addressId = addressId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public long getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(long phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    public String getDoorNo() {
+        return doorNo;
+    }
+
+    public void setDoorNo(String doorNo) {
+        this.doorNo = doorNo;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(int pincode) {
+        this.pincode = pincode;
+    }
+
+    public boolean isDefault() {
+        return isDefault;
+    }
+
+    public void setDefault(boolean aDefault) {
+        isDefault = aDefault;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="address_id")

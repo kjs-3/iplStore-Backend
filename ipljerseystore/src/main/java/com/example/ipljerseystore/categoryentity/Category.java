@@ -15,6 +15,46 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name="categories")
 public class Category {
+    public long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public Categoryname getName() {
+        return name;
+    }
+
+    public void setName(Categoryname name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public List<Products> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Products> products) {
+        this.products = products;
+    }
+
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="category_id")

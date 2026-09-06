@@ -13,6 +13,46 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name="order_items")
 public class OrderItems {
+    public long getOrderitemsId() {
+        return orderitemsId;
+    }
+
+    public void setOrderitemsId(long orderitemsId) {
+        this.orderitemsId = orderitemsId;
+    }
+
+    public Orders getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Orders orders) {
+        this.orders = orders;
+    }
+
+    public Products getProducts() {
+        return products;
+    }
+
+    public void setProducts(Products products) {
+        this.products = products;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="order_items")
