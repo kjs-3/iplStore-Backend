@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api/category")
 // @CrossOrigin(origins="http://localhost:5173","https://ipl-store-frontend-c1w5kdt9f-kjs-3s-projects.vercel.app","https://*.vercel.app",allowCredentials = "true")
 public class CategoryController {
     @Autowired
@@ -34,7 +34,7 @@ public class CategoryController {
         }
     }
 
-    @PostMapping("/category/addcategory")
+    @PostMapping("/admin/addcategory")
     public ResponseEntity<?> addcategory(@RequestBody CategoryRequestDto categoryRequestDto) {
        // if (!Session.isAdmin(session)) {
        //     return ResponseEntity.badRequest().body("Admin only can add data");
@@ -47,7 +47,7 @@ public class CategoryController {
         }
     }
 
-    @PutMapping("/category/updatecategory/{id}")
+    @PutMapping("/admin/updatecategory/{id}")
     public ResponseEntity<?> updatecategory(@PathVariable("id") long id,
                                             @RequestBody CategoryRequestDto categoryRequestDto) {
        // if (!Session.isAdmin(session)) {
@@ -62,7 +62,7 @@ public class CategoryController {
 
     }
 
-    @DeleteMapping("/category/deletecategory/{id}")
+    @DeleteMapping("/admin/deletecategory/{id}")
     public ResponseEntity<?> updatecategory(@PathVariable("id") long id) {
        // if (!Session.isAdmin(session)) {
        //     return ResponseEntity.status(401).body("Admin alone should update admin login needed");
