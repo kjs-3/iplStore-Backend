@@ -55,9 +55,9 @@ public class ProductController {
     @PostMapping("/admin/addproduct")
     public ResponseEntity<?> addproduct(@RequestBody ProductRequestDto productRequestDto,
                                         HttpSession session){
-//        if(!Session.isAdmin(session)){
-//            return ResponseEntity.status(401).body("Admin only allowed to add products");
-//        }
+       if(!Session.isAdmin(session)){
+           return ResponseEntity.status(401).body("Admin only allowed to add products");
+       }
         try{
             ProductResponseDto productResponseDto=productService.addproduct(productRequestDto);
             return ResponseEntity.ok(productResponseDto);
@@ -68,9 +68,9 @@ public class ProductController {
     }
     @PostMapping("/admin/addimage")
     public ResponseEntity<?> addimage(@RequestParam("files")MultipartFile file,HttpSession session){
-//        if(!Session.isAdmin(session)){
-//            return ResponseEntity.status(401).body("Admin only allowed to add images");
-//        }
+       if(!Session.isAdmin(session)){
+           return ResponseEntity.status(401).body("Admin only allowed to add images");
+       }
         try{
             String uploaddir="src/main/resources/static/images";
             String fileName=System.currentTimeMillis()+"_"+file.getOriginalFilename();
@@ -87,9 +87,9 @@ public class ProductController {
     public ResponseEntity<?> updateproduct(@RequestBody ProductRequestDto productRequestDto,
                                            @PathVariable("id") long id,
                                            HttpSession session){
-//        if(!Session.isAdmin(session)){
-//            return ResponseEntity.status(401).body("Admin only allowed to update exisiting products");
-//        }
+       if(!Session.isAdmin(session)){
+           return ResponseEntity.status(401).body("Admin only allowed to update exisiting products");
+       }
         try{
             ProductResponseDto productResponseDto=productService.updateproduct(productRequestDto,id);
             return ResponseEntity.ok(productResponseDto);
@@ -100,9 +100,9 @@ public class ProductController {
     }
     @DeleteMapping("/admin/deleteproduct/{id}")
     public ResponseEntity<?> deleteproductbyid(@PathVariable("id") long id,HttpSession session){
-//        if(!Session.isAdmin(session)){
-//            return ResponseEntity.status(401).body("Admin only allowed to update exisiting products");
-//        }
+       if(!Session.isAdmin(session)){
+           return ResponseEntity.status(401).body("Admin only allowed to update exisiting products");
+       }
         try{
             String message=productService.deleteproductbyid(id);
             return ResponseEntity.ok(message);
