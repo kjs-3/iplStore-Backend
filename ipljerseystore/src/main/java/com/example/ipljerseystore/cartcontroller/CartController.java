@@ -20,8 +20,7 @@ public class CartController {
     @Autowired
     CartService cartService;
     @PostMapping("/addtocart")
-    public ResponseEntity<?> addtocart(@RequestBody CartRequestDto cartRequestDto
-    , HttpSession session){
+    public ResponseEntity<?> addtocart(@RequestBody CartRequestDto cartRequestDto){
        // if(!Session.isLoggedin(session)){
        //     return ResponseEntity.status(401).body("Please Login to add Items");
        // }
@@ -40,7 +39,7 @@ public class CartController {
         }
     }
     @GetMapping("/getcartofuser/{userid}")
-    public ResponseEntity<?> getcartofuser(@PathVariable("userid") long id,HttpSession session){
+    public ResponseEntity<?> getcartofuser(@PathVariable("userid") long id){
        // if(!Session.isLoggedin(session)){
        //     return ResponseEntity.status(401).body("Please Login to get your Item list");
        // }
@@ -57,8 +56,7 @@ public class CartController {
     }
     @PutMapping("/updatequantity/{cartid}")
     public ResponseEntity<?> updatequantity(@PathVariable("cartid") long id,
-                                            @RequestParam int quantity,
-                                            HttpSession session){
+                                            @RequestParam int quantity){
        // if(!Session.isLoggedin(session)){
        //     return ResponseEntity.status(401).body("Please Login to get your Item list");
        // }
@@ -71,7 +69,7 @@ public class CartController {
         }
     }
     @DeleteMapping("/deletecart/{cartid}")
-    public ResponseEntity<?> deletecart(@PathVariable("cartid") long id,HttpSession session){
+    public ResponseEntity<?> deletecart(@PathVariable("cartid") long id){
        // if(!Session.isLoggedin(session)){
        //     return ResponseEntity.status(401).body("Please Login to get this selected Item from list");
        // }
@@ -84,7 +82,7 @@ public class CartController {
         }
     }
     @DeleteMapping("/deleteallcart/{userid}")
-    public ResponseEntity<?> deleteallcartitems(@PathVariable("userid")long id,HttpSession session){
+    public ResponseEntity<?> deleteallcartitems(@PathVariable("userid")long id){
        // if(!Session.isLoggedin(session)){
        //     return ResponseEntity.status(401).body("Please Login to delete all of your Item list");
        // }
@@ -97,7 +95,7 @@ public class CartController {
         }
     }
     @GetMapping("/totalamount/{userid}")
-    public ResponseEntity<?> totalamount(@PathVariable("userid") long id,HttpSession session){
+    public ResponseEntity<?> totalamount(@PathVariable("userid") long id){
        // if(!Session.isLoggedin(session)){
        //     return ResponseEntity.status(401).body("Please Login to check total amount in your Item list");
        // }
