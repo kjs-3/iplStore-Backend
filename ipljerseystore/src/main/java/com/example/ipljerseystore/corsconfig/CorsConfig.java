@@ -24,8 +24,8 @@ public class CorsConfig  {
              
    }
             @Override
-            public void addResourceHandlers(ResourceHandlersRegistry registry){
-               registry.addResourceHandler("images/**)
+            public void addResourceHandlers(ResourceHandlerRegistry registry){
+               registry.addResourceHandler("/images/**")
                   .addResourceLocations("classpath:/static/images/");
             }
          };
