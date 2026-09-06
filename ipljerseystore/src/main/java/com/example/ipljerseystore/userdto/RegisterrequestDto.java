@@ -4,7 +4,7 @@ public class RegisterrequestDto{
     private String userName;
     private String userEmail;
     private String userPassword;
-    private long userPhonenumber;
+    private Long userPhonenumber;
 
     public RegisterrequestDto() {
     }
@@ -40,11 +40,11 @@ public class RegisterrequestDto{
         this.userPassword = userPassword;
     }
 
-    public long getUserPhonenumber() {
+    public Long getUserPhonenumber() {
         return userPhonenumber;
     }
 
-    public void setUserPhonenumber(long userPhonenumber) {
+    public void setUserPhonenumber(Long userPhonenumber) {
         this.userPhonenumber = userPhonenumber;
     }
 }
