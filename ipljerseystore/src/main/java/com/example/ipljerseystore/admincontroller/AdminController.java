@@ -12,9 +12,9 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.RestController;
 
 @RestController
     @RequestMapping("/api/admin")
@@ -52,7 +52,7 @@ public class AdminController {
         return ResponseEntity.ok(productService.getallproducts());
     }
     @GetMapping("/getallcategories")
-    public ResponseEntity<?> getcategories(){
+    public ResponseEntity<?> getcategories(HttpSession session){
                if(!Session.isAdmin(session)){
            return ResponseEntity.status(401).body("Admin login...!!");
        }
