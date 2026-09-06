@@ -22,9 +22,9 @@ public class CartController {
     @PostMapping("/addtocart")
     public ResponseEntity<?> addtocart(@RequestBody CartRequestDto cartRequestDto
     , HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(401).body("Please Login to add Items");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(401).body("Please Login to add Items");
+       }
 //        long userId=Session.getuserId(session);
 //        cartRequestDto.setUserId(userId);
 //        cartRequestDto.setUser_id(Session.getuserId(session));
@@ -41,9 +41,9 @@ public class CartController {
     }
     @GetMapping("/getcartofuser/{userid}")
     public ResponseEntity<?> getcartofuser(@PathVariable("userid") long id,HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(401).body("Please Login to get your Item list");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(401).body("Please Login to get your Item list");
+       }
 //        if(cartRequestDto.getUserId()==0){
 //            return ResponseEntity.status(401).body("Please Login to get your Item list");
 //        }
@@ -59,9 +59,9 @@ public class CartController {
     public ResponseEntity<?> updatequantity(@PathVariable("cartid") long id,
                                             @RequestParam int quantity,
                                             HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(401).body("Please Login to get your Item list");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(401).body("Please Login to get your Item list");
+       }
         try{
           CartResponseDto cartResponseDto=cartService.updatequantity(id,quantity);
             return  ResponseEntity.ok(cartResponseDto);
@@ -72,9 +72,9 @@ public class CartController {
     }
     @DeleteMapping("/deletecart/{cartid}")
     public ResponseEntity<?> deletecart(@PathVariable("cartid") long id,HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(401).body("Please Login to get this selected Item from list");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(401).body("Please Login to get this selected Item from list");
+       }
         try{
             String message=cartService.deletecart(id);
             return ResponseEntity.ok(message);
@@ -85,9 +85,9 @@ public class CartController {
     }
     @DeleteMapping("/deleteallcart/{userid}")
     public ResponseEntity<?> deleteallcartitems(@PathVariable("userid")long id,HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(401).body("Please Login to delete all of your Item list");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(401).body("Please Login to delete all of your Item list");
+       }
         try{
             String message=cartService.deleteallcartitems(id);
             return ResponseEntity.ok(message);
@@ -98,9 +98,9 @@ public class CartController {
     }
     @GetMapping("/totalamount/{userid}")
     public ResponseEntity<?> totalamount(@PathVariable("userid") long id,HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(401).body("Please Login to check total amount in your Item list");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(401).body("Please Login to check total amount in your Item list");
+       }
         try{
             Double amount=cartService.totalamount(id);
             return ResponseEntity.ok(amount);
