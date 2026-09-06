@@ -17,7 +17,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins="http://localhost:5173",allowCredentials = "true")
+@CrossOrigin(origins="http://localhost:5173","https://ipl-store-frontend-c1w5kdt9f-kjs-3s-projects.vercel.app","https://*.vercel.app",allowCredentials = "true")
 @RequestMapping("/api/products")
 public class ProductController {
     @Autowired
