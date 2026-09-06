@@ -21,9 +21,9 @@ public class OrderController {
     @PostMapping("/placeorder") //done by user
     public ResponseEntity<?> placeorder(@RequestBody OrderRequestDto orderRequestDto,
                                         HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(400).body("Login to Place an Order...");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(400).body("Login to Place an Order...");
+       }
 //        orderRequestDto.setUserId(Session.getuserId(session)); //ram what user id it saved
         try{
             OrderResponseDto orderResponseDto=orderService.placeorder(orderRequestDto);
@@ -35,9 +35,9 @@ public class OrderController {
     }
     @GetMapping("/userorders/{userid}")
     public ResponseEntity<?> getuserorders(@PathVariable("userid") long userid,HttpSession session){
-//            if(!Session.isLoggedin(session)){
-//                return ResponseEntity.status(400).body("Login to get an OrderBYUSERID...");
-//            }
+           if(!Session.isLoggedin(session)){
+               return ResponseEntity.status(400).body("Login to get an OrderBYUSERID...");
+           }
             try{
                 List<OrderResponseDto> orderResponseDto=orderService.getuserorders(userid);
                 return ResponseEntity.ok(orderResponseDto);
@@ -49,9 +49,9 @@ public class OrderController {
     }
     @GetMapping("/getorderbyid/{orderid}")
     public ResponseEntity<?> getorderbyid(@PathVariable("orderid") long orderid,HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(400).body("Login to get an OrderBYID...");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(400).body("Login to get an OrderBYID...");
+       }
         try{
             OrderResponseDto orderResponseDto=orderService.getorderbyid(orderid);
             return ResponseEntity.ok(orderResponseDto);
@@ -63,9 +63,9 @@ public class OrderController {
     }
     @GetMapping("/admin/getallorders")
     public ResponseEntity<?> getallorders(HttpSession session){
-//        if(!Session.isAdmin(session)){
-//            return ResponseEntity.status(400).body("Only admin can see all orders Admin access");
-//        }
+       if(!Session.isAdmin(session)){
+           return ResponseEntity.status(400).body("Only admin can see all orders Admin access");
+       }
         try{
             List<OrderResponseDto> orderResponseDto=orderService.getallorders();
             return ResponseEntity.ok(orderResponseDto);
@@ -78,9 +78,9 @@ public class OrderController {
     @GetMapping("/admin/getorderbystatus/{status}")
     public ResponseEntity<?> getordersbystatus(@PathVariable("status")String status,
                                                HttpSession session){
-//        if(!Session.isAdmin(session)){
-//            return ResponseEntity.status(400).body("Only admin can see all ordersBYSTATUS Admin access");
-//        }
+       if(!Session.isAdmin(session)){
+           return ResponseEntity.status(400).body("Only admin can see all ordersBYSTATUS Admin access");
+       }
         try{
             List<OrderResponseDto> orderResponseDto=orderService.getorderbystatus(status);
             return ResponseEntity.ok(orderResponseDto);
@@ -94,9 +94,9 @@ public class OrderController {
     public ResponseEntity<?> updatestatus(@PathVariable("orderId") long orderid,
                                           HttpSession session,
                                           @RequestBody OrderStatusUpdateDto orderStatusUpdateDto){
-//        if(!Session.isAdmin(session)){
-//            return ResponseEntity.status(400).body("Only admin can update all orders Admin access");
-//        }
+       if(!Session.isAdmin(session)){
+           return ResponseEntity.status(400).body("Only admin can update all orders Admin access");
+       }
         try{
            OrderResponseDto orderResponseDto=orderService.updatestatus(orderid,orderStatusUpdateDto.getStatus());
             return ResponseEntity.ok(orderResponseDto);
@@ -108,9 +108,9 @@ public class OrderController {
     }
     @PutMapping("/cancelorder/{orderid}")
     public ResponseEntity<?> cancelorder(@PathVariable("orderid") long orderid,HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(400).body("Login to Cancel your OrderBYID...");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(400).body("Login to Cancel your OrderBYID...");
+       }
         try{
             OrderResponseDto orderResponseDto=orderService.cancelorder(orderid);
             return ResponseEntity.ok(orderResponseDto);
