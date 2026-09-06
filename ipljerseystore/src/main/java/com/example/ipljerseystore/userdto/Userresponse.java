@@ -4,7 +4,7 @@ public class Userresponse {
     private long userId;
     private String userName;
     private String userEmail;
-    private long userPhonenumber;
+    private Long userPhonenumber;
     private String role;
 
     public Userresponse() {
@@ -47,7 +47,7 @@ public class Userresponse {
         return userPhonenumber;
     }
 
-    public void setUserPhonenumber(long userPhonenumber) {
+    public void setUserPhonenumber(Long userPhonenumber) {
         this.userPhonenumber = userPhonenumber;
     }
 
