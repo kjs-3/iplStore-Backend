@@ -37,9 +37,9 @@ public class CategoryController {
     @PostMapping("/admin/addcategory")
     public ResponseEntity<?> addcategory(@RequestBody CategoryRequestDto categoryRequestDto,
                                          HttpSession session) {
-       if (!Session.isAdmin(session)) {
-           return ResponseEntity.badRequest().body("Admin only can add data");
-       }
+       // if (!Session.isAdmin(session)) {
+       //     return ResponseEntity.badRequest().body("Admin only can add data");
+       // }
         try {
             CategoryResponseDto categoryResponseDto = categoryService.addcategory(categoryRequestDto);
             return ResponseEntity.ok(categoryResponseDto);
@@ -52,9 +52,9 @@ public class CategoryController {
     public ResponseEntity<?> updatecategory(@PathVariable("id") long id,
                                             @RequestBody CategoryRequestDto categoryRequestDto,
                                             HttpSession session) {
-       if (!Session.isAdmin(session)) {
-           return ResponseEntity.status(401).body("Admin alone should update admin login needed");
-       }
+       // if (!Session.isAdmin(session)) {
+       //     return ResponseEntity.status(401).body("Admin alone should update admin login needed");
+       // }
         try {
             CategoryResponseDto categoryResponseDto = categoryService.updatecategory(id, categoryRequestDto);
             return ResponseEntity.ok(categoryResponseDto);
@@ -67,9 +67,9 @@ public class CategoryController {
     @DeleteMapping("/admin/deletecategory/{id}")
     public ResponseEntity<?> updatecategory(@PathVariable("id") long id,
                                            HttpSession session) {
-       if (!Session.isAdmin(session)) {
-           return ResponseEntity.status(401).body("Admin alone should update admin login needed");
-       }
+       // if (!Session.isAdmin(session)) {
+       //     return ResponseEntity.status(401).body("Admin alone should update admin login needed");
+       // }
         try {
             String message = categoryService.deletecategory(id);
             return ResponseEntity.ok(message);
