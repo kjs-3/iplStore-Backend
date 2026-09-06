@@ -20,17 +20,17 @@ public class AddressController {
     AddressService addressService;
     @GetMapping("/{userId}")
     public ResponseEntity<?> getalladdress(@PathVariable("userId") long id, HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//           return ResponseEntity.status(401).body("To make You add address Login First");
-//        }
+       if(!Session.isLoggedin(session)){
+          return ResponseEntity.status(401).body("To make You add address Login First");
+       }
             List<AddressResponseDto> addressResponseDto=addressService.getalladdress(id);
             return ResponseEntity.ok(addressResponseDto);
     }
     @GetMapping("/defaultaddress/{userId}")
     public ResponseEntity<?> getdefaultaddress(@PathVariable("userId") long id,HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(401).body("To make You add address Login First");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(401).body("To make You add address Login First");
+       }
         try{
             AddressResponseDto addressResponseDto =addressService.getdefaultaddress(id);
             return ResponseEntity.ok(addressResponseDto);
@@ -42,9 +42,9 @@ public class AddressController {
     @PostMapping("/addaddress")
     public ResponseEntity<?> addaddress(@RequestBody AddressRequestDto addressRequestDto
     ,HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(401).body("To make You add address Login First");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(401).body("To make You add address Login First");
+       }
         try{
             AddressResponseDto addressResponseDto=addressService.addaddress(addressRequestDto);
             return ResponseEntity.ok(addressResponseDto);
@@ -57,9 +57,9 @@ public class AddressController {
     public ResponseEntity<?>setdefault(@PathVariable("addressid") long addressid,
                                            @PathVariable("userid")long userid,
                                            HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(401).body("To make You add address Login First");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(401).body("To make You add address Login First");
+       }
         try{
             AddressResponseDto addressResponseDto=addressService.setdefault(addressid,userid);
             return ResponseEntity.ok(addressResponseDto);
@@ -72,9 +72,9 @@ public class AddressController {
     @DeleteMapping("/delete/{addressid}")
     public ResponseEntity<?> deleteaddress(@PathVariable("addressid") long addressid,
                                            HttpSession session){
-//        if(!Session.isLoggedin(session)){
-//            return ResponseEntity.status(401).body("To make You add address Login First");
-//        }
+       if(!Session.isLoggedin(session)){
+           return ResponseEntity.status(401).body("To make You add address Login First");
+       }
         try{
             String message=addressService.deleteaddress(addressid);
             return ResponseEntity.ok(message);
