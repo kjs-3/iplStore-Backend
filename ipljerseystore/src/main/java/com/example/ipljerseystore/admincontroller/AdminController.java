@@ -30,28 +30,28 @@ public class AdminController {
     private AdminService adminService;
     @Autowired
     private CategoryService categoryService;
-    @GetMapping("/admin/dashboard")
+    @GetMapping("/dashboard")
     public ResponseEntity<?> getdashboard(HttpSession session){
        if(!Session.isAdmin(session)){
            return ResponseEntity.status(401).body("Admin can only view....");
        }
         return ResponseEntity.ok(adminService.getdashboard());
     }
-    @GetMapping("/admin/users")
+    @GetMapping("/users")
     public ResponseEntity<?> getalluses(HttpSession session){
        if(!Session.isAdmin(session)){
            return ResponseEntity.status(401).body("Admin login...!!");
        }
         return ResponseEntity.ok(userService.getallusers());
     }
-    @GetMapping("/admin/getallproducts")
+    @GetMapping("/getallproducts")
     public ResponseEntity<?> getallproducts(HttpSession session){
                if(!Session.isAdmin(session)){
            return ResponseEntity.status(401).body("Admin login...!!");
        }
         return ResponseEntity.ok(productService.getallproducts());
     }
-    @GetMapping("/admin/getallcategories")
+    @GetMapping("/getallcategories")
     public ResponseEntity<?> getcategories(){
                if(!Session.isAdmin(session)){
            return ResponseEntity.status(401).body("Admin login...!!");
