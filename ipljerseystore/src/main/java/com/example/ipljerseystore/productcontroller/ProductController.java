@@ -53,8 +53,7 @@ public class ProductController {
                 (categoryId,teamname));
     }
     @PostMapping("/admin/addproduct")
-    public ResponseEntity<?> addproduct(@RequestBody ProductRequestDto productRequestDto,
-                                        HttpSession session){
+    public ResponseEntity<?> addproduct(@RequestBody ProductRequestDto productRequestDto){
        // if(!Session.isAdmin(session)){
        //     return ResponseEntity.status(401).body("Admin only allowed to add products");
        // }
@@ -67,7 +66,7 @@ public class ProductController {
         }
     }
     @PostMapping("/admin/addimage")
-    public ResponseEntity<?> addimage(@RequestParam("files")MultipartFile file,HttpSession session){
+    public ResponseEntity<?> addimage(@RequestParam("files")MultipartFile file,){
        // if(!Session.isAdmin(session)){
        //     return ResponseEntity.status(401).body("Admin only allowed to add images");
        // }
@@ -85,8 +84,8 @@ public class ProductController {
     }
     @PutMapping("/admin/updateproduct/{id}")
     public ResponseEntity<?> updateproduct(@RequestBody ProductRequestDto productRequestDto,
-                                           @PathVariable("id") long id,
-                                           HttpSession session){
+                                           @PathVariable("id") long id
+                                          ){
        // if(!Session.isAdmin(session)){
        //     return ResponseEntity.status(401).body("Admin only allowed to update exisiting products");
        // }
