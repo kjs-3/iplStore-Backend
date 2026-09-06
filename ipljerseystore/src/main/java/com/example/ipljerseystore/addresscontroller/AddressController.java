@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/address")
-@CrossOrigin(origins = "https://ipl-store-frontend-c1w5kdt9f-kjs-3s-projects.vercel.app","https://*.vercel.app","https://localhost:5173",allowCredentials = "true")
+// @CrossOrigin(origins = "https://ipl-store-frontend-c1w5kdt9f-kjs-3s-projects.vercel.app","https://*.vercel.app","https://localhost:5173",allowCredentials = "true")
 public class AddressController {
     @Autowired
     AddressService addressService;
