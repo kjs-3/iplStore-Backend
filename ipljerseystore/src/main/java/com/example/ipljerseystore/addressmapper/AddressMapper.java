@@ -17,7 +17,7 @@ public class AddressMapper {
         addressResponseDto.setCity(address.getCity());
         addressResponseDto.setState(address.getState());
         addressResponseDto.setPincode(address.getPincode());
-        addressResponseDto.setDefault(address.getisDefault());
+        addressResponseDto.setDefault(address.isDefault());
         return addressResponseDto;
     }
     //dto to entity
