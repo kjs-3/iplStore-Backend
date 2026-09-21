@@ -66,7 +66,7 @@ public class ProductController {
         }
     }
     @PostMapping("/admin/addimage")
-    public ResponseEntity<?> addimage(@RequestParam("files")MultipartFile file,){
+    public ResponseEntity<?> addimage(@RequestParam("files")MultipartFile file){
        // if(!Session.isAdmin(session)){
        //     return ResponseEntity.status(401).body("Admin only allowed to add images");
        // }
